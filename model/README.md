@@ -1,1 +1,0 @@
-# Demonstration of a model layer in angular
