@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h3 class="modal-title">Review</h3>
+</div>
+<div class="modal-body">
+    <ul>
+        <li>First: {{user.firstName}}</li>
+        <li>Last: {{user.lastName}}</li>
+        <li>Phone: {{user.phone}}</li>
+        <li>Email: {{user.email}}</li>
+    </ul>
+    Agree to Terms: <input ng-model="agree" type="checkbox">
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()" ng-disabled="!agree">Done</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

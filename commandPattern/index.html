@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="commandDemo">
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
+  <script src="example.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+  <h1 class="page-header">Command Pattern Demo</h1>
+  <div ng-controller="ListCtrl">
+    <h2>List</h2>
+    <ol>
+      <li ng-repeat="item in list">{{item.name}}</li>
+    </ol>
+    <button ng-click="import()" class="btn btn-default">Import range from list</button>
+    <button ng-click="export()" class="btn btn-default">Export range from list</button>
+  </div>
+</body>
+</html>

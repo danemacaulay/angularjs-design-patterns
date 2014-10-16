@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Web Address</th>
+      <th>Lat/Long</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="company in companies">
+      <td>
+        <a ng-show="listPlus" ng-href="#/company/{{company.duns}}">{{company.name}}</a>
+        <span ng-hide="listPlus">{{company.name}}</span>
+      </td>
+      <td>{{company.webAddress}}</td>
+      <td><span ng-show="company.address.latitude">{{company.address.latitude}} / {{company.address.longitude}}</span></td>
+    </tr>
+  </tbody>
+</table>

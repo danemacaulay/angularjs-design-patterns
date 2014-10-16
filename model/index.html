@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+  <script src="model.js"></script>
+  <script src="model-service.js"></script>
+  <script src="app.js"></script>
+  <script src="app-controllers.js"></script>
+  <script src="company-factory.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="ModelDemo" class="container">
+
+  <h1 class="page-header">Company Utility</h1>
+  <div>
+    <a href="#/list" class="btn btn-default">List</a>
+    <a href="#/crm" class="btn btn-primary">CRM</a>
+    <a ng-click="listPlus = !listPlus" class="btn btn-info">Toggle List Plus</a>
+  </div>
+  <hr />
+  <div ng-view></div>
+</body>
+
+</html>

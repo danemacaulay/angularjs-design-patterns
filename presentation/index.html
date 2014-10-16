@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>AngularJS Design Patterns</title>
+
+        <meta name="description" content="AngularJS Design Patterns">
+        <meta name="author" content="Dane Macaulay">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+<!--        #613749
+        #C74735
+        #BC9275
+        #FF7439
+        #FFD679 -->
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-transition="linear" data-background="#375E7C" data-background-transition="slide">
+                    <h1>AngularJS Design Patterns</h1>
+                    <p>
+                        <small>Hosted by <a href="http://dnb.com">Dunn & Bradstreet</a></small>
+                    </p>
+                    <p>
+                        <small>Presented by <a href="https://github.com/danemacaulay">Dane A Macaulay</a></small>
+                    </p>
+                    <img src="http://www.eurobricks.com/forum/uploads//1341774262/gallery_1771_217_162187.jpg">
+                </section>
+
+                <section data-transition="linear" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#BC9275" data-background-transition="slide">
+                        <h2>Background</h2>
+                        <img src="http://imgur.com/03f3J.jpg">
+                    </section>
+
+                    <section data-transition="linear" data-background="#6FBCA4" data-background-transition="slide">
+                        <h2>GoF</h2>
+                        <small>'Design Patterns: Elements Of Reusable Object-Oriented Software.' provides 23 commonly used patterns</small>
+                        <iframe src="http://c2.com/cgi/wiki?GangOfFour" style="width: 560px;height: 400px;"/></iframe>
+                        <h5>Links: </h5>
+                        <ul>
+                            <li>
+                                <a href="http://www.cs.umd.edu/class/spring2008/cmsc433/lectures/designPatternsP1.pdf">Go4 book as PDF</a>
+                            </li>
+                            <li>
+                                <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Javascript Design Patterns</a>
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section data-transition="linear" data-background="#68E3C1" data-background-transition="slide">
+                        <h3>What is a pattern?</h3>
+                        <ul>
+                            <li>Proven solutions</li>
+                            <li>Easily reused</li>
+                            <li>Expressive</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+                        <h3>Anti-pattern?</h3>
+                        <ul>
+                            <li>Proven ineffective solutions</li>
+                            <li>Often accidently reused</li>
+                            <li>Unexpressive, confusing</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#375E7C" data-background-transition="slide">
+                        <h3>What design patterns are used in Angular?</h3>
+                        <ul>
+                            <li>DI</li>
+                            <li>Module</li>
+                            <li>MV*</li>
+                            <li>Factory</li>
+                            <li>Observe</li>
+                            <li>Facade</li>
+                            <li>More...</li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#3D74C4" data-background-transition="slide">
+                        <h2>Value proposition</h2>
+                        <img src="http://consortiumnews.com/wp-content/uploads/2012/01/mrmoneybags.jpg">
+                    </section>
+                    <section data-transition="linear" data-background="#FF7439" data-background-transition="slide">
+                        <h3>Debugging purposes</h3>
+                        <ul>
+                            <li>When something breaks that has been designed well, its easier to figure out whats wrong</li>
+                            <li>Creating cognitive maps for software workflows helps us understand whats going wrong when it does</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#FF2679" data-background-transition="slide">
+                        <h3>Evaluating solutions</h3>
+                        <ul>
+                            <li>Taking the guesswork out of the process of adding new features</li>
+                            <li>Architecting applications with tried and true design features can make the software easier and more fun to maintain</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#F26D43" data-background-transition="slide">
+                        <h3>Understanding frameworks</h3>
+                        <ul>
+                            <li>Learn new application frameworks quickly</li>
+                            <li>Frameworks are in the business of providing common functionality that is extensible, understandable, and useful</li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+                    <img src="http://amazingasset.com/wp-content/uploads/2013/08/Skeptical-Hippo.jpg">
+                    <ul>
+                        <li>Defend why it is necessary.</li>
+                        <li>How practical is the pattern?</li>
+                        <li>Design patterns should be transparent </li>
+                        <li>Originality is not key</li>
+                    </ul>
+                </section>
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#65444B" data-background-transition="slide">
+                        <h2>Module pattern</h2>
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Pfarrkirche_Liesing_-_Erwin_Hauer_Design_3.JPG">
+                    </section>
+                    <section data-transition="linear" data-background="#C78457" data-background-transition="slide">
+                        <h2>Module pattern</h2>
+                        <ul>
+                            <li>Encapsulate privacy, exposing a public api</li>
+                            <li>Clean solution for shielding logic and exposing small parts of the application</li>
+                            <li>Prevents namespace conflicts and makes it easier to work with other code bases</li>
+                            <li>Javascript doesn't have a traditional notion of privacy so we use function scope to emulate this feature</li>
+                        </ul>
+                    </section>
+                    <section data-transition="linear" data-background="#9788A9" data-background-transition="slide">
+                        <h2>AngularJS Modules</h2>
+                        <ul>
+                            <li>The declarative process is easier to understand.</li>
+                            <li>You can package code as reusable modules.</li>
+                            <li>The modules can be loaded in any order (or even in parallel) because modules delay execution.</li>
+                            <li>Unit tests only have to load relevant modules, which keeps them fast.</li>
+                            <li>End-to-end tests can use modules to override configuration.</li>
+                            <li>Keep window clean of globals</li>
+                            <li>Promote DI with provider, service, factory, value, and constant module components</li>
+                        </ul>
+
+                        <h5>Links: </h5>
+                        <ul>
+                            <li><a href="https://docs.angularjs.org/guide/module">Module Guide</a></li>
+                            <li><a href="https://docs.angularjs.org/api/ng/type/angular.Module">Module API</a></li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#6AABA4" data-background-transition="slide">
+                        <h2>MV*</h2>
+                        <h4>MVC, MVVC, MVP</h4>
+                        <small>A set of design patterns used to create an application</small>
+                        <img src="http://media-cache-ec0.pinimg.com/736x/5f/61/f0/5f61f01a2ef1e6aaffdc3f248cae7884.jpg">
+                    </section>
+
+
+                    <section data-transition="linear" data-background="#375E7C" data-background-transition="slide">
+                        <h2>MV*</h2>
+                        <h5>MVC, MVVC, MVP</h5>
+                        <ul>
+                            <li>There a fair bit of ink spilt in regards to what makes MVC, often we defer to an application framework for this structure</li>
+                            <li>Javascript MVC are a bit of a departure from traditional MVC as the server-side interpretation of MVC doesn't translate 1:1 to the client-side</li>
+                            <li>The GoF do not refer to MVC as a design pattern, but rather consider it a set of classes to build a user interface. In their view, it's actually a variation of three classical design patterns: the Observer, Strategy and Composite patterns. Depending on how MVC has been implemented in a framework, it may also use the Factory and Template patterns. The GoF book mentions these patterns as useful extras when working with MVC.</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#65444B" data-background-transition="slide">
+                        <h2>Model</h2>
+                        <ul>
+                            <li>Models manage the data for an application.</li>
+                            <li>Represent unique forms of data that an application may require</li>
+                            <li>Not concerned with the user interface</li>
+                            <li>Typcally notifify observers of changes</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#457380" data-background-transition="slide">
+                        <h2>View</h2>
+                        <ul>
+                            <li>Present the model to the viewer</li>
+                            <li>Show changes made to the model</li>
+                            <li>Delegate to the controller user actions</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#6FBCA4" data-background-transition="slide">
+                        <h2>Controllers</h2>
+                        <ul>
+                            <li>Intermediary between models and views which are classically responsible for updating the model</li>
+                            <li>Handle changes in the model</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#FF7439" data-background-transition="slide">
+                        <blockquote>
+                            For several years +AngularJS was closer to MVC (or rather one of its client-side variants), but over time and thanks to many refactorings and api improvements, it's now closer to MVVM – the $scope object could be considered the ViewModel that is being decorated by a function that we call a Controller.
+                        </blockquote>
+                        <small>Igor Minar, maintainer of AngularJS</small>
+
+                        <h5>Links: </h5>
+                        <ul>
+                            <li><a href="https://plus.google.com/+IgorMinar/posts">Igor Minar</a></li>
+                            <li><a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">Post</a></li>
+                        </ul>
+                    </section>
+                    <section data-transition="linear" data-background="#A6AEBB" data-background-transition="slide">
+                        <h2>AngularJS MV*</h2>
+                        The Model in angular is often adhoc...
+                        <pre><code>
+                        service.getList().then(function(resp) {
+                            $scope.list = resp.data;
+                        });
+                        </code></pre>
+                    </section>
+                    <section data-transition="linear" data-background="#1F1919" data-background-transition="slide">
+                        <h2>AngularJS MV*</h2>
+                        <ul>
+                            <li>Angular leaves the model in MVC up to you</li>
+                            <li>This gives us a lot of leeway in implementation</li>
+                            <li>Simple model, use constructor functions</li>
+                            <li>Model with mixins, use factory and visitor pattern</li>
+                            <li>Global mixin with provider</li>
+                            <li>Goal is modularity and maintainability</li>
+                        </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#0A633D" data-background-transition="slide">
+                       <h2>Sample application - Model layer in Angular</h2>
+                       <ul>
+                           <li>Use constructor, factory, and mixin patterns for sharing functionality across implementation</li>
+                           <li>Structure for maintainability</li>
+                           <li>Allow for reuse and change, dont forget your product peeps...</li>
+                       </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#15CAB1" data-background-transition="slide">
+                       <iframe src="http://embed.plnkr.co/P9Pgs1/preview" style="width: 100%;height: 800px;"></iframe>
+                    </section>
+
+                </section>
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#9788A9" data-background-transition="slide">
+                        <h2>Mediator Pattern</h2>
+                        <img src="http://memecrunch.com/meme/LAU4/mediator-cat/image.jpg?w=500&c=1">
+                    </section>
+                    <section data-transition="linear" data-background="#0A633D" data-background-transition="slide">
+                        <h2>Mediator Pattern</h2>
+                        <ul>
+                            <li>Useful when there are too many direct relationships between components</li>
+                            <li>The pattern promotes loose coupling by ensuring that instead of components referring to each other explicitly</li>
+                            <li>Promotes code reuse and helps decouple complex systems</li>
+                        </ul>
+
+                        <h5>Links: </h5>
+                        <ul>
+                            <li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#mediatorpatternjavascript">Mediator Pattern</a></li>
+                        </ul>
+
+                        <br>
+                    </section>
+
+                    <section data-transition="linear" data-background="#6FBCA4" data-background-transition="slide">
+                       <h2>Sample application - Mediator</h2>
+                       <ul>
+                           <li>Demonstrate implementation of a series of modals presented in order by using an mediator object</li>
+                           <li>Structure for maintainability</li>
+                           <li>Allow for reuse and change, dont forget your product team...</li>
+                       </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#FF7439" data-background-transition="slide">
+                       <iframe src="http://embed.plnkr.co/wKNT9iBsygkmakWOnI3j/preview" style="width: 100%;height: 800px;"></iframe>
+                    </section>
+
+                </section>
+
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#0A633D" data-background-transition="slide">
+                        <h2>Command Pattern</h2>
+                        <img src="http://news.xinhuanet.com/english/2008-05/26/xin_302050526074525008551.jpg">
+                    </section>
+                    <section data-transition="linear" data-background="#9788A9" data-background-transition="slide">
+                        <h2>Command Pattern</h2>
+                        <ul>
+                            <li>Encapsulate method invocation, requests or operations into a single object</li>
+                            <li>Gives us the ability to both parameterize and pass method calls</li>
+                            <li>Decouples objects invoking the action from the objects which implement them, giving us a greater degree of overall flexibility</li>
+                        </ul>
+                        <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#commandpatternjavascript">Command Pattern</a>
+                        <br>
+                    </section>
+
+                    <section data-transition="linear" data-background="#FF7439" data-background-transition="slide">
+                       <h2>Sample application - Command</h2>
+                       <ul>
+                           <li>Use a third party object to calculate limit and offset from a range so that it can be used across different implementations</li>
+                           <li>This case, we need a range picker for two completely seperate features, import/export</li>
+                           <li>Structure for maintainability, only change code once</li>
+                           <li>Allow for reuse and change, dont forget product team...</li>
+                       </ul>
+                    </section>
+
+                    <section data-transition="linear" data-background="#A6AEBB" data-background-transition="slide">
+                       <iframe src="http://embed.plnkr.co/1ugNUHWrO1N5VngLFYzm/preview" style="width: 100%;height: 800px;"></iframe>
+                    </section>
+
+                </section>
+
+
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+
+                    <section data-transition="linear" data-background="#0A633D" data-background-transition="slide">
+                        <h2>Material Design</h2>
+                        <img src="https://material-design.storage.googleapis.com/images/materialdesign-goals-landingimage_large_mdpi.png">
+                    </section>
+                    <section data-transition="linear" data-background="#15CAB1" data-background-transition="slide">
+                        <h2>Material Design</h2>
+                        <ul>
+                            <li>Material is the metaphor</li>
+                            <li>Bold, graphic, intentional</li>
+                            <li>Motion provides meaning</li>
+                        </ul>
+                        <br>
+                        <a href="https://www.google.com/design/spec/material-design/introduction.html#introduction-goals">Material Design Introduction</a>
+                        <br>
+                    </section>
+
+                    <section data-transition="linear" data-background="#FF7439" data-background-transition="slide">
+                       <iframe src="https://material.angularjs.org/#/" style="width: 100%;height: 800px;"></iframe>
+                       <br>
+                       <a href="https://material.angularjs.org/#/" style="width: 100%;height: 800px;">Angular Material Design</a>
+                    </section>
+
+                </section>
+                <section data-transition="linear" data-background="#C74735" data-background-transition="slide">
+                    <h1>QA</h1>
+                    <p>
+                        <small>Hosted by <a href="http://dnb.com">Dunn & Bradstreet</a></small>
+                    </p>
+                    <p>
+                        <small>Presented by <a href="https://github.com/danemacaulay">Dane A Macaulay</a></small>
+                    </p>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

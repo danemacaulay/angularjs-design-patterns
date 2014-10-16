@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="mediatorDemo">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div ng-controller="UserProfileCtrl" class="container">
+      <h1 ng-show="user.status === 'new'">Complete your registration!</h1>
+      <h1 ng-show="user.status === 'finished'">Congrats!</h1>
+      <h1 ng-show="user.status === 'incomplete'">Registration incomplete!</h1>
+      <hr />
+      <div ng-show="user.status !== 'finished'">
+        Hi {{user.firstName}},
+        <button class="btn btn-default" ng-click="begin()">Continue</button>
+      </div>
+
+      <div ng-show="user.status === 'finished'">
+          <h2>Completed profile</h2>
+          <hr />
+          <ul>
+            <li ng-show="user.firstName">Firstname: {{user.firstName}}</li>
+            <li ng-show="user.lastName">Lastname: {{user.lastName}}</li>
+            <li ng-show="user.phone">Phone: {{user.phone}}</li>
+            <li ng-show="user.email">Email: {{user.email}}</li>
+          </ul>
+      </div>
+
+    </div>
+  </body>
+</html>
