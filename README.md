@@ -10,7 +10,7 @@ This repo contains:
  
 ## Running example applications
 
-Grab the serve node module for easy deployment
+Grab the serve node module to host a web server
 
 ```bash
 npm install -g serve
@@ -18,5 +18,5 @@ cd model
 serve
 ```
 
-Goto http://localhost:3000/
+Goto [http://localhost:3000/](http://localhost:3000/)
 
